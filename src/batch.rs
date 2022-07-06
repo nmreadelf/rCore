@@ -145,3 +145,10 @@ pub fn run_next_app() -> ! {
     }
     panic!("Unreachable in batch::run_current_app!");
 }
+
+/// get current running app
+pub fn get_curr_app() {
+    let app_manager = APP_MANAGER.exclusive_access();
+    let current_app = app_manager.get_current_app();
+    println!("current app id: {}", current_app);
+}
